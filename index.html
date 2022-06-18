@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       
+    </style>
+</head>
+<body>
+    <div>
+        <form>
+            <h2>Sign Up</h2>
+            <p>Full name</p>
+            <input type="text" placeholder="name" id="name">
+            <p>Email</p>
+            <input type="email" placeholder="email" id="mail">
+            <p>password</p>
+            <input type="password" placeholder="password" id="pass">
+            <input type="submit" />
+            <p>Have u Already Sign IN?<a href="login.html">login</a></p>
+        </form>
+        
+        
+    </div>
+</body>
+</html>
+<script>
+   
+   
+    
+    document.querySelector("form").addEventListener("submit",fisignUp)
+    var dabba=JSON.parse(localStorage.getItem("hulk")) || [];
+    
+    function fisignUp(){
+        event.preventDefault();
+        var obj={
+            name:document.querySelector("#name").value,
+            email:document.querySelector("#mail").value,
+            password:document.querySelector("#pass").value
+          
+        };
+        
+       dabba.push(obj);
+       
+      localStorage.setItem("hulk",JSON.stringify(dabba));
+
+      
+    }
+
+</script>

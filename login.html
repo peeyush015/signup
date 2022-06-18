@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <body>
+        <div>
+            <form id="login">
+                <h2>Sign In</h2>
+                <form>
+                <p>Email</p>
+                <input type="email" placeholder="email" id="mail">
+                <p>password</p>
+                <input type="password" placeholder="password" id="pass">
+                <input type="submit" value="login" />
+            </form>
+            
+            
+            
+        </div>
+    </body>
+</body>
+</html>
+<script>
+    document.getElementById("login").addEventListener("submit",MyFun);
+function MyFun(){
+    event.preventDefault();
+    var email=document.querySelector("#mail").value;
+    var password=document.querySelector("#pass").value;
+    
+    let user_records=new Array();
+  
+  user_records=JSON.parse(localStorage.getItem("hulk"))
+  console.log(user_records)
+  ?JSON.parse(localStorage.getItem("hulk")):[]
+  console.log(user_records)
+  if(user_records.some((v)=>{return v.email==email && v.password==password})){
+    alert("Login Success");
+    let current_user=user_records.filter((v)=>{return v.email==email && v.password==password})[0]
+    localStorage.setItem("name",current_user.name);
+    window.location.href="https://www.masaischool.com/";
+
+  }
+  else{
+    alert("user Password wrong!");
+    
+  }
+  
+ }
+    
+   
+
+
+
+
+</script>
